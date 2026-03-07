@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github Issue Tracker</title>
+    <title>Github Issues Tracker | Log In</title>
 
     <!-- font awesome -->
 
@@ -23,13 +23,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
-    <link rel="shortcut icon" href="https://fontawesome.com/icons/github?f=brands&s=solid" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body class="max-w-[1600px] mx-auto bg-[#F8FAFC] pt-[60px] min-h-screen">
 
-    <h1 class="text-4xl">Hellow</h1>
+    <main class="max-w-[520px] p-5 mx-auto rounded-xl bg-white ">
+        <header class="flex flex-col items-center mb-6">
+            <div class="top">
+                <img src="./assets/github-logo.png" alt="">
+            </div>
+            <div class="bottom text-center">
+                <h3 class="font-semibold text-[24px] text-[#1F2937]">GitHub Issues Tracker</h3>
+                <p class="text-[#64748B]">Sign in to manage your issues</p>
+            </div>
+        </header>
+
+        <div class="flex flex-col">
+            <label for="username" class="font-medium text-[#1F2937] mb-2">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter username" class="h-12 p-4 rounded-xl">
+
+            <br>
+
+            <label for="pass" class="font-medium text-[#1F2937] mb-2">Password</label>
+            <input type="password" name="pass" id="password" placeholder="Enter Password" class="h-12 p-4 rounded-xl">
+
+            <br>
+
+            <button type="submit" class="btn btn-primary h-12 font-semibold rounded-xl my-6" id="submitBtn" onclick="submit()">Sign In</button>
+        </div>
+    </main>
 
 
     <script src="./script.js"></script>
