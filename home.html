@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Issues Tracker | Log In</title>
-    
+
     <!-- font awesome -->
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <!-- Tailwind and Daisyui -->
-    
+
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
+
     <!-- google fonts -->
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
-    
+
     <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body class="bg-[#F8FAFC] min-h-screen">
 
-    <header class="px-[60px] flex items-center justify-between p-4 bg-white">
-        <div class="logo flex items-center gap-1">
+    <!-- logo and searchbar with add button -->
+
+    <header class="px-[60px] md:gap-0 gap-6 flex items-center justify-between p-4 bg-white">
+        <div class="logo md:flex items-center gap-1">
             <img class="h-9 w-9" src="./assets/github-logo.png" alt="">
-            <h2 class="font-semibold text-[24px]">GitHub Issues Tracker</h2>
+            <h2 class="font-semibold text-[24px] hidden sm:block">GitHub Issues Tracker</h2>
         </div>
         <div class="searchbar flex items-center gap-6">
             <label class="input">
@@ -47,17 +51,21 @@
         </div>
     </header>
 
-    <main class="max-w-[1110px] mx-auto mt-[60px] bg-white">
-        <div class="top p-6 gap-1">
+    <main class="max-w-[1110px] mx-auto mt-[60px]">
+    
+        <!-- toggle section -->
+    
+        <div class="top p-6 mb-4 gap-1 border-2 border-[#F8FAFC] bg-white">
             <div class="h-10 w-[120px] btn btn-primary">All</div>
             <div class="h-10 w-[120px] btn">Open</div>
             <div class="h-10 w-[120px] btn">Closed</div>
         </div>
 
         <section>
-            <div class="top px-6 py-4 flex items-center justify-between border-2 border-[#F8FAFC]">
+            <div class="top px-6 py-4 flex items-center justify-between border-2 border-[#F8FAFC] bg-white">
                 <div class="left flex gap-2">
-                    <div class="h-[50px] w-[50px] flex items-center justify-center bg-[#ECE4FF] rounded-full"><img src="./assets/Aperture.png" alt=""></div>
+                    <div class="h-[50px] w-[50px] flex items-center justify-center bg-[#ECE4FF] rounded-full"><img
+                            src="./assets/Aperture.png" alt=""></div>
                     <div>
                         <h4 class="font-semibold text-[#1F2937] text-[20px]"><span>50</span> Issues</h4>
                         <p class="text-[#64748B]">Track and manage your project issues</p>
@@ -75,7 +83,33 @@
                 </div>
             </div>
 
-            <main id="main-sec" class="p-6 border-2 border-[#F8FAFC]">
+            <!-- Cards -->
+            
+            <main id="main-sec" class="grid grid-cols-4 gap-2 p-6 border-2 border-[#F8FAFC] bg-white">
+            
+                <div class="card border-t-3 border-t-[#00A96E] shadow-md p-4 rounded-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="circle"><img src="./assets/Open-Status.png" alt="" id="oc-stat"></div>
+                        <h3 class="text-red-500 w-[80px] h-6 rounded-xl bg-[#FEECEC] text-center">HIGH</h3>
+                    </div>
+                    <div>
+                        <h1 class="text-[#1F2937] font-semibold text-[14px]mb-2">Fix navigation menu on mobile devices
+                        </h1>
+                        <p class="text-[#64748B] text-[14px] mb-3">The navigation menu doesn't collapse properly on
+                            mobile
+                            devices...
+                        </p>
+                        <div>
+                            <button class="btn btn-outline btn-error rounded-full">BUG</button>
+                            <button class="btn btn-outline btn-warning rounded-full">HELP WANTED</button>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-[#64748B] text-[14px] mt-3">#1
+                            by john_doe</p>
+                        <p class="text-[#64748B] text-[14px]">1/15/2024</p>
+                    </div>
+                </div>
 
             </main>
 
@@ -85,4 +119,5 @@
 
     <script src="./api.js"></script>
 </body>
+
 </html>
