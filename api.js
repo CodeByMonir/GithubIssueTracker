@@ -11,7 +11,29 @@ const issueCount = document.getElementById('issue-count');
 
 // search bar call
 const search = document.getElementById('search-bar');
-const searchBar = search.value;
+
+
+// searchbar function
+
+search.addEventListener('keyup', async function (e) {
+    const searchInput = e.target.value.toLowerCase();
+
+    if (searchInput.trim() === ""){
+        loadData();
+        return;
+    }
+
+    openSpinner();
+
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchInput}`);
+    const load = await res.json();
+
+    issueCount.textContent = load.data.length;
+
+    closeSpinner();
+
+    displayData(load.data);
+});
 
 
 // button toggling
@@ -99,29 +121,39 @@ async function loadData() {
 }
 
 function displayData(data) {
+
     data.forEach((data) => {
 
-        // console.log(data.status)
+        let priorityColor = "bg-[#EEEFF2] text-[#9CA3AF]";
+
+        if(data.priority === 'high'){
+            priorityColor = "bg-[#FEECEC] text-[#EF4444]";
+        }
+        else if(data.priority === 'medium'){
+            priorityColor = "bg-[#FFF6D1] text-[#F59E0B]";
+        };
 
         const card = document.createElement('div');
-        card.className = "card border-t-3 border-t-[#00A96E] shadow-md p-4 rounded-xl";
+        card.className = `card border-t-3 border-t-${data.status === "open" ? '[#00A96E]' : '[#A855F7]'} shadow-md p-4 rounded-xl`;
 
         card.innerHTML = `<div class="flex items-center justify-between mb-4">
 
                                 <div class="circle"><img
-                                src=""
+                                src="./assets/${data.status === "open" ? 'Open-Status.png' : 'Closed-Status.png'}"
                                 alt=""
                                 id="oc-stat">
                                 </div>
 
-                                <h3 class="text-red-500 w-[80px] h-6 rounded-xl bg-[#FEECEC] text-center">${data.priority}</h3>
+                                <h3 class=" w-[80px] h-6 rounded-xl ${priorityColor} text-center">${data.priority}</h3>
+
                             </div>
                             <div>
                                 <h1 class="text-[#1F2937] font-semibold text-[14px]mb-2">${data.title}</h1>
                                 <p class="text-[#64748B] text-[14px] mb-3 line-clamp-2">${data.description}</p>
-                                <div>
-                                    <button class="btn btn-outline btn-error rounded-full">${data.labels[0]}</button>
-                                    <button class="btn btn-outline btn-warning rounded-full">${data.labels[1]}</button>
+                                <div class="flex gap-2">
+                                    ${data.labels.map(tag => `
+                                        <span class="text-xs px-3 py-1 rounded-full ${tag === 'bug' ? 'bg-red-100 text-red-600 border border-red-200' : tag === 'enhancement' ? 'bg-green-100 text-green-600 border border-green-200' : tag === 'help wanted' ? 'bg-yellow-100 text-yellow-600 border border-yellow-200' : tag === 'good first issue' ? 'bg-gray-100 text-gray-600 border border-gray-200' : tag === 'documentation' ? 'bg-blue-100 text-blue-600 border border-blue-200' : ''}">${tag}</span>
+                                    `).join('')}
                                 </div>
                             </div>
                             <hr class="border-2 border-[#F8FAFC] my-2">
