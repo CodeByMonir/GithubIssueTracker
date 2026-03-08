@@ -45,7 +45,7 @@
                         <path d="m21 21-4.3-4.3"></path>
                     </g>
                 </svg>
-                <input type="search" required placeholder="Search" />
+                <input type="search" required placeholder="Search" id=""/>
             </label>
             <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Issue</button>
         </div>
@@ -67,7 +67,7 @@
                     <div class="h-[50px] w-[50px] flex items-center justify-center bg-[#ECE4FF] rounded-full"><img
                             src="./assets/Aperture.png" alt=""></div>
                     <div>
-                        <h4 class="font-semibold text-[#1F2937] text-[20px]"><span>50</span> Issues</h4>
+                        <h4 class="font-semibold text-[#1F2937] text-[20px]"><span id="issue-count">00</span> Issues</h4>
                         <p class="text-[#64748B]">Track and manage your project issues</p>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
             
             <!-- Spinner -->
             
-            <div class="h-[60vh] hidden justify-center items-center" id="spinner">
+            <div class="h-[60vh] hidden flex justify-center items-center" id="spinner">
                 <span class="loading loading-spinner loading-lg"></span>
             </div>
 
