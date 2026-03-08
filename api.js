@@ -13,6 +13,8 @@ const issueCount = document.getElementById('issue-count');
 const search = document.getElementById('search-bar');
 
 
+
+
 // searchbar function
 
 search.addEventListener('keyup', async function (e) {
@@ -34,6 +36,8 @@ search.addEventListener('keyup', async function (e) {
 
     displayData(load.data);
 });
+
+
 
 
 // button toggling
@@ -64,6 +68,8 @@ closedBtn.addEventListener('click', function () {
 
 
 
+// loading spinner
+
 function openSpinner() {
     spinner.classList.remove("hidden");
     mainSec.innerHTML = "";
@@ -74,6 +80,9 @@ function closeSpinner() {
 };
 
 
+
+
+// open btn function
 
 async function openData() {
     openSpinner();
@@ -88,8 +97,11 @@ async function openData() {
     issueCount.textContent = openData.length;
 
     closeSpinner();
-}
+};
 
+
+
+// close btn function
 
 async function closedData() {
     openSpinner();
@@ -106,6 +118,10 @@ async function closedData() {
     closeSpinner();
 }
 
+
+
+// all btn and main json fetch function
+
 async function loadData() {
 
     openSpinner();
@@ -119,6 +135,11 @@ async function loadData() {
 
     displayData(load.data);
 }
+
+
+
+
+// json data display function
 
 function displayData(data) {
 
@@ -135,6 +156,7 @@ function displayData(data) {
 
         const card = document.createElement('div');
         card.className = `card border-t-3 border-t-${data.status === "open" ? '[#00A96E]' : '[#A855F7]'} shadow-md p-4 rounded-xl`;
+        card.setAttribute("onclick", `modal(${data.id})`);
 
         card.innerHTML = `<div class="flex items-center justify-between mb-4">
 
@@ -164,6 +186,11 @@ function displayData(data) {
         mainSec.appendChild(card);
 
     });
-}
+};
 
 loadData();
+
+
+function modal(id){
+    
+}
