@@ -29,7 +29,7 @@
 
 <body class="max-w-[1600px] mx-auto bg-[#F8FAFC] py-[60px] min-h-screen">
 
-    <main class="max-w-[520px] p-5 mx-auto rounded-xl bg-white ">
+    <main class="max-w-[520px] p-5 mx-auto rounded-xl bg-white shadow-md">
         <header class="flex flex-col items-center mb-6">
             <div class="top">
                 <img src="./assets/github-logo.png" alt="">
@@ -41,17 +41,30 @@
         </header>
 
         <div class="flex flex-col">
-            <label for="username" class="font-medium text-[#1F2937] mb-2">Username</label>
-            <input minlength="5" type="text" name="username" id="username" placeholder="Enter username" class="h-12 p-4 rounded-xl">
+            <label for="username" required class="font-medium text-[#1F2937] mb-2">Username</label>
+            <input minlength="5" type="text" name="username" id="username" placeholder="Enter username"
+                class="h-12 p-4 rounded-xl">
 
             <br>
 
             <label for="pass" class="font-medium text-[#1F2937] mb-2">Password</label>
-            <input minlength="8" type="password" name="pass" id="password" placeholder="Enter Password" class="h-12 p-4 rounded-xl">
+            <input minlength="8" required type="password" name="pass" id="password" placeholder="Enter Password"
+                class="h-12 p-4 rounded-xl">
 
             <br>
 
-            <button type="submit" class="btn btn-primary h-12 font-semibold rounded-xl my-6" id="submitBtn" onclick="submit()">Sign In</button>
+            <button type="submit" class="btn btn-primary h-12 font-semibold rounded-xl my-6" id="submitBtn"
+                onclick="submit()">Sign In</button>
+        </div>
+        <div class="flex items-center justify-between">
+            <hr class="flex-1 border border-[#E4E4E7]">
+            <span class="mx-2 items-center justify-center">OR</span>
+            <hr class="flex-1 border border-[#E4E4E7]">
+        </div>
+        <div>
+            <p class="">Demo Credentials:</p>
+            <p><span>Username:</span> admin</p>
+            <p><span>Password:</span> admin123</p>
         </div>
     </main>
 

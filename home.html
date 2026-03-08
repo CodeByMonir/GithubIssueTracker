@@ -51,14 +51,14 @@
         </div>
     </header>
 
-    <main class="max-w-[1110px] mx-auto mt-[60px]">
-    
+    <main class="max-w-[1310px] mx-auto mt-[60px]">
+
         <!-- toggle section -->
-    
+
         <div class="top p-6 mb-4 gap-1 border-2 border-[#F8FAFC] bg-white">
-            <div class="h-10 w-[120px] btn btn-primary">All</div>
-            <div class="h-10 w-[120px] btn">Open</div>
-            <div class="h-10 w-[120px] btn">Closed</div>
+            <div class="h-10 w-[120px] btn btn-primary" id="all-btn">All</div>
+            <div class="h-10 w-[120px] btn" id="open-btn">Open</div>
+            <div class="h-10 w-[120px] btn" id="closed-btn">Closed</div>
         </div>
 
         <section>
@@ -84,34 +84,15 @@
             </div>
 
             <!-- Cards -->
-            
-            <main id="main-sec" class="grid grid-cols-4 gap-2 p-6 border-2 border-[#F8FAFC] bg-white">
-            
-                <div class="card border-t-3 border-t-[#00A96E] shadow-md p-4 rounded-xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="circle"><img src="./assets/Open-Status.png" alt="" id="oc-stat"></div>
-                        <h3 class="text-red-500 w-[80px] h-6 rounded-xl bg-[#FEECEC] text-center">HIGH</h3>
-                    </div>
-                    <div>
-                        <h1 class="text-[#1F2937] font-semibold text-[14px]mb-2">Fix navigation menu on mobile devices
-                        </h1>
-                        <p class="text-[#64748B] text-[14px] mb-3">The navigation menu doesn't collapse properly on
-                            mobile
-                            devices...
-                        </p>
-                        <div>
-                            <button class="btn btn-outline btn-error rounded-full">BUG</button>
-                            <button class="btn btn-outline btn-warning rounded-full">HELP WANTED</button>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-[#64748B] text-[14px] mt-3">#1
-                            by john_doe</p>
-                        <p class="text-[#64748B] text-[14px]">1/15/2024</p>
-                    </div>
-                </div>
 
+            <main id="main-sec" class="grid sm:gri2 md:grid-cols-3 xl:grid-cols-4 gap-2 p-6 border-2 border-[#F8FAFC] bg-white">
             </main>
+            
+            <!-- Spinner -->
+            
+            <div class="h-[60vh] hidden justify-center items-center" id="spinner">
+                <span class="loading loading-spinner loading-lg"></span>
+            </div>
 
         </section>
     </main>
